@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="eventApp">
+<head>
+<title>AngularJS Events Demo</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script&gt;
+</head>
+
+<body ng-controller="eventCtrl" style="text-align:center;">
+
+<h2>AngularJS Events Practical</h2>
+
+<!----Mouse Event Area -->
+<h3> Que. 3 </h3>
+<div style="width:1000px; height:500px; border:1px solid black; margin:auto; padding:10px;"
+ng-mousemove="showCoordinates($event)"
+ng-mouseenter="message='Mouse Entered!'"
+ng-mouseleave="message='Mouse Left!'">
+<p>{{ message }}</p>
+<p>X: {{ x }} | Y: {{ y }}</p>
+</div>
+
+<script>
+var app = angular.module("eventApp", []);
+app.controller("eventCtrl", function($scope) {
+$scope.message = "Move mouse here...";
+$scope.showCoordinates = function(event) {
+$scope.x = event.offsetX;
+$scope.y = event.offsetY;
+};
+});
+</script>
+</body>
+</html>

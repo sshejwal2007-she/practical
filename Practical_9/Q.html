@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="eventApp">
+<head>
+    <title>AngularJS Events</title>
+
+    <!-- AngularJS CDN -->
+    <script 
+
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+</script>
+</head>
+
+<body ng-controller="eventCtrl">
+
+    <h2>AngularJS Events Example</h2>
+
+    <!-- Output -->
+    <h3>{{ message }}</h3>
+
+    <!-- Mouse Events -->
+    <div style="width:200px;height:100px;background:#e0e0e0;padding:10px;"
+         ng-mouseover="mouseOver()"
+         ng-mouseleave="mouseLeave()">
+        Move Mouse Here
+    </div>
+
+    <br>
+
+    <!-- Click Events -->
+    <button ng-click="singleClick()">Click Me</button>
+    <button ng-dblclick="doubleClick()">Double Click Me</button>
+
+    <br><br>
+
+    <!-- Keyboard Event -->
+    <input type="text"
+           placeholder="Type something..."
+           ng-keyup="keyPressed($event)">
+
+    <!-- AngularJS Script -->
+    <script>
+        var app = angular.module("eventApp", []);
+
+        app.controller("eventCtrl", function($scope) {
+
+            $scope.message = "Event message will appear here";
+
+            $scope.singleClick = function () {
+                $scope.message = "Button Clicked!";
+            };
+
+            $scope.doubleClick = function () {
+                $scope.message = "Button Double Clicked!";
+            };
+
+            $scope.mouseOver = function () {
+                $scope.message = "Mouse Over the Box!";
+            };
+
+            $scope.mouseLeave = function () {
+                $scope.message = "Mouse Left the Box!";
+            };
+
+            $scope.keyPressed = function (event) {
+                $scope.message = "Key Pressed: " + event.key;
+            };
+
+        });
+    </script>
+
+</body>
+</html>

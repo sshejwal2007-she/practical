@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="currencyApp">
+<head>
+<title>Currency Format</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="currencyCtrl" style="text-align:center; margin-top:40px;">
+
+<h2>Currency Format Output</h2>
+
+<input type="number" ng-model="amount" placeholder="Enter Amount"><br><br>
+
+<button ng-click="convert()">Submit</button>
+
+<div ng-if="finalAmount">
+    <p><b>Currency:</b> {{ finalAmount | currency:"$" }}</p>
+</div>
+
+<script>
+angular.module('currencyApp', []).controller('currencyCtrl', function($scope){
+    $scope.convert = function(){
+        $scope.finalAmount = $scope.amount;
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="dateApp">
+<head>
+<title>Date Text Format</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="dateCtrl" style="text-align:center; margin-top:40px;">
+
+<h2>Date Formatting Demo</h2>
+
+<input type="text" ng-model="dateText" placeholder="Enter date (YYYY-MM-DD)">
+<br><br>
+
+<button ng-click="convertDate()">Submit</button>
+
+<div ng-if="outputDate">
+    <p><b>Formatted Date:</b> {{ outputDate | date:'MM/dd/yyyy' }}</p>
+</div>
+
+<script>
+angular.module('dateApp', []).controller('dateCtrl', function($scope){
+    $scope.convertDate = function(){
+        // Convert text to Date object
+        $scope.outputDate = new Date($scope.dateText);
+    };
+});
+</script>
+
+</body>
+</html>

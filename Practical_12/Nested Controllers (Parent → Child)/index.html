@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <center>
+        <div ng-controller="ParentCtrl">
+            <p>Parent Data: {{parentData}}</p>
+
+            <div ng-controller="ChildCtrl">
+                <p>Child Data: {{childData}}</p>
+                <p>Inherited: {{parentData}}</p>
+            </div>
+        </div>
+
+    </center>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <title>Experiment No.5 </title>
+</head>
+
+<body ng-controller="examCtrl">
+<h1>Que.2. Student Exam Registration Form using (ng-controller) </h1>
+<h3>Student Exam Registration</h3>
+
+<form name="studForm">
+    Roll No:
+    <input type="number" ng-model="student.roll" required><br><br>
+
+    Name:
+    <input type="text" ng-model="student.name" required><br><br>
+
+    Subject:
+    <select ng-model="student.subject" required>
+        <option value="">Select</option>
+        <option>Maths</option>
+        <option>Science</option>
+    </select><br><br>
+
+    <button>Submit</button>
+</form>
+
+<script>
+var app = angular.module("myApp", []);
+app.controller("examCtrl", function($scope) {
+    $scope.student = {};
+});
+</script>
+
+</body>
+</html>

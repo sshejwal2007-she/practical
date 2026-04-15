@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="nameApp">
+<head>
+<title>Case Conversion</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="nameCtrl" style="text-align:center; margin-top:40px;">
+
+<h2>Case Conversion Output</h2>
+
+<input type="text" ng-model="fname" placeholder="First Name"><br><br>
+<input type="text" ng-model="lname" placeholder="Last Name"><br><br>
+
+<button ng-click="convert()">Submit</button>
+
+<div ng-if="fullName">
+    <p><b>Uppercase:</b> {{ fullName | uppercase }}</p>
+    <p><b>Lowercase:</b> {{ fullName | lowercase }}</p>
+    <p><b>Sentence Case:</b> {{ sentenceCase }}</p>
+</div>
+
+<script>
+angular.module('nameApp', []).controller('nameCtrl', function($scope){
+    $scope.convert = function(){
+        $scope.fullName = $scope.fname + " " + $scope.lname;
+
+        let lower = $scope.fullName.toLowerCase();
+        $scope.sentenceCase = lower.charAt(0).toUpperCase() + lower.slice(1);
+    }
+});
+</script>
+
+</body>
+</html>

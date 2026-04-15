@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS Filters</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="myCtrl">
+
+<h2>AngularJS Filters</h2>
+
+<p><b>Uppercase:</b> {{ name | uppercase }}</p>
+<p><b>Lowercase:</b> {{ name | lowercase }}</p>
+<p><b>Currency:</b> {{ fees | currency:"₹" }}</p>
+<p><b>Date:</b> {{ today | date:'fullDate' }}</p>
+
+<h3>Search Filter</h3>
+<input type="text" ng-model="searchText">
+
+<ul>
+    <li ng-repeat="s in students | filter:searchText">
+        {{ s.name }} - {{ s.marks }}
+    </li>
+</ul>
+
+<h3>Order By Marks</h3>
+<ul>
+    <li ng-repeat="s in students | orderBy:'marks'">
+        {{ s.name }} - {{ s.marks }}
+    </li>
+</ul>
+
+<script>
+    var app = angular.module("myApp", []);
+
+    app.controller("myCtrl", function($scope) {
+        $scope.name = "Client Side Scripting";
+        $scope.fees = 1500;
+        $scope.today = new Date();
+
+        $scope.students = [
+            { name: "Anand", marks: 85 },
+            { name: "Rohit", marks: 72 },
+            { name: "Sneha", marks: 92 }
+        ];
+    });
+</script>
+
+</body>
+</html>
