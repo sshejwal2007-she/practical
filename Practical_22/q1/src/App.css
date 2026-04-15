@@ -1,0 +1,13 @@
+.heading {
+  color: green;
+  background-color: lightyellow;
+  padding: 10px;
+}
+
+.btn {
+  background-color: orange;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
